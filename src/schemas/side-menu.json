@@ -1,0 +1,66 @@
+[
+    {
+        "headerText": "Usuarios",
+        "bootstrapIcon": "bi bi-people",
+        "children": [
+            {
+                "headerText": "Planillas",
+                "link": "/users/"
+            },
+            {
+                "headerText": "Listado",
+                "link": "/users/"
+            }
+        ]
+    },
+    {
+        "headerText": "Reportes",
+        "bootstrapIcon":"bi bi-list-task",
+        "children":[
+            {
+                "headerText": "Nuevo reporte",
+                "link": "/reports/"
+            },
+            {
+                "headerText": "Reportes activo",
+                "link": "/reports/"
+            },
+            {
+                "headerText": "Todos los reportes",
+                "link": "/reports/"
+            },
+            {
+                "headerText": "Licencia versat",
+                "link": "/reports/"
+            }
+        ]
+    },
+    {
+        "headerText": "Softwares",
+        "bootstrapIcon":"bi bi-microsoft",
+        "children":[
+            {
+                "headerText": "Permitidos",
+                "link": "/reports/"
+            },
+            {
+                "headerText": "Agregar",
+                "link": "/reports/"
+            }
+        ]
+    },
+    {
+        "headerText": "Enlaces de iterés",
+        "bootstrapIcon":"bi bi-link-45deg",
+        "children":[
+            {
+                "headerText": "Intranet",
+                "link": "http://intranet.thaba.cu"
+            },
+            {
+                "headerText": "Correo",
+                "link": "http://correo.thaba.cu"
+            }
+        ]
+    }
+]

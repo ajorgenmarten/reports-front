@@ -1,0 +1,20 @@
+☐ Instala la extension "To do Tasks" para ver esto con resaltado de texto @low
+☐ Para modo de desarrollo se debe quitar el <React.StrictMode></React.StrictMode> del main.tsx @high 
+
+Agregar formik:
+    ✔ Formulario de login @high @done (1/2/2024, 15:16:49)
+    ✔ Formilario de Registro @high @done (29/1/2024, 2:04:50)
+    ✔ Formulario de recuperar contraseña @high @done (1/2/2024, 19:45:18 )
+
+Vistas:
+    ✔ Terminar activacion de cuenta @done (1/2/2024, 19:45:27)
+    ✔ Terminar Forgot @done (4/2/2024, 2:13:28)
+    ✔ Cambiar contraseña @done (4/2/2024, 2:13:30)
+
+Otros cambios:
+    ✔ Hacer que cuando de error de cuenta mo activa el toast te de la opcion de reenviar codigo de activacion @done (4/2/2024, 15:42:17)
+    ✔ Hacer el container que trae el drawer @high @done (5/2/2024, 0:24:45)
+    ✔ Para escritorio el boton de activar el drawer no debe aparecer @high @done (5/2/2024, 0:24:50)
+    ✔ Crear un menu laterar para escritorio parecido al de gmail (este menu no debe salir en movil) @high @done (7/2/2024, 16:03:50)
+    ✔ Terminar el SideMenu @done (7/2/2024, 16:03:51)
+    ☐ Empezar a programar la parte de los reportes @high 
