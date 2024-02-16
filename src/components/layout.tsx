@@ -8,7 +8,7 @@ export const Layout = () => {
         <Navbar />
         <div className="flex">
             <SideMenu />
-            <div className="w-full md:w-[calc(100vw-20rem)] min-h-[calc(100vh-66px)]">
+            <div className="w-full md:w-[calc(100vw-20rem)] min-h-[calc(100vh-67px)]">
                 <Outlet />
             </div>
         </div>

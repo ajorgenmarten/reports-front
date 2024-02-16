@@ -21,7 +21,7 @@ export const Input = (props: InputProps) => {
             {props.label ? <span className="label-text">{props.label}</span> : null}
         </div>
         { props.icon ? <JoinBox {...props} /> : <input {...props} className={`input input-bordered w-full ${props.className}`} /> }
-        { props.error && <div className="label p-0 pl-1">
+        { props.error && <div className="label p-0 pl-1 pt-1">
             <span className="label-text-alt text-red-400 truncate"> <i className="bi bi-info-circle"></i> {props.error}</span>
         </div> }
     </label>

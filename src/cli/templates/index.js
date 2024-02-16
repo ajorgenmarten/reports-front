@@ -14,8 +14,8 @@ export interface {name}State {
 }
 
 const initialState: {name}State = {
-    text: 'before'
+    text: 'example'
 }
 
-export const use{name}Store = createStore(initialState, actions, {name})
+export const use{name}Store = createStore(initialState, actions, '{name}')
 `}

@@ -60,6 +60,14 @@
             {
                 "headerText": "Correo",
                 "link": "http://correo.thaba.cu"
+            },
+            {
+                "headerText": "SIGE GEMPIL",
+                "link": "https://172.24.90.45/patdsi3.php/menu/indexTest"
+            },
+            {
+                "headerText": "SIGE THABA",
+                "link": "http://sigelite.thaba.cu:9003/sigelite.php/lite/sigelite"
             }
         ]
     }

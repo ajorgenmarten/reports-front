@@ -31,7 +31,7 @@ export const createListMenu = (items: LinkItem[]) => {
 
 export const SideMenu = () => {
 
-    return <div className="h-[calc(100vh-66px)] w-80 hidden md:block p-2 grow overflow-auto">
+    return <div className="h-[calc(100vh-67px)] w-80 hidden md:block p-2 grow overflow-auto">
         <ul className="menu menu-md bg-base-200 rounded-box mb-2">
             {createListMenu(schema)}
         </ul>

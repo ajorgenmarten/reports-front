@@ -14,6 +14,7 @@ export const auth = (state: AuthState, response: Response) => {
 
 export const refresh = (state: AuthState, response: Response) => {
     if ( !response.success ) {
+        if(response.message == "Failed to fetch") return state
         state.isAuth = false
         state.token = undefined
     } else {

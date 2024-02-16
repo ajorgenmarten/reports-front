@@ -24,7 +24,7 @@ export const Register = () => {
         }
     })
 
-    return <form action="" className="max-w-full prose p-3 w-full flex-col justify-items-center justify-center" onSubmit={formik.handleSubmit}>
+    return <form action="" className="max-w-full prose p-3 w-full flex-col items-center h-full overflow-y-auto" onSubmit={formik.handleSubmit}>
         <h1 className='text-center uppercase mb-2'>registrarse</h1>
         <Input icon='person' label='Nombre' placeholder='Nombre completo' {...formik.getFieldProps('name')} error={ formik.touched.name && formik.errors.name }/>
         <Input icon='person' label='Nombre de usuario' placeholder='Nombre de usuario' {...formik.getFieldProps('username')} error={ formik.touched.username && formik.errors.username }/>

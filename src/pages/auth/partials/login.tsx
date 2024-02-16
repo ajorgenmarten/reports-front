@@ -31,7 +31,7 @@ export const Login = () => {
     })
     return <form onSubmit={formik.handleSubmit} className="max-w-full prose p-3 w-full flex-col justify-items-center justify-center">
         <h1 className='text-center uppercase mb-2'>iniciar sesion</h1>
-        <Input icon='at' label='Nombre de usuario o correo' type='text' placeholder='ejemplo@thaba.cu'  {...formik.getFieldProps('username')} error={formik.touched.username && formik.errors.username} />
+        <Input icon='at' label='Nombre de usuario o correo' type='text' placeholder='username | ejemplo@thaba.cu'  {...formik.getFieldProps('username')} error={formik.touched.username && formik.errors.username} />
         <Input icon='lock' label='Contraseña' type='password' placeholder='••••••••'  {...formik.getFieldProps('password')} error={formik.touched.password && formik.errors.password} />
         <p className='m-0 pt-5'><Link to='register' >Registrarme</Link></p>
         <p className='m-0'>He olvidado mi <Link to="forgot">contraseña</Link></p>
