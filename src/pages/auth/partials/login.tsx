@@ -11,8 +11,8 @@ import { useAuthStore } from "../../../stores/auth"
 export const Login = () => {
     const [submitting, setSubmitting] = useState(false)
     const authDispatch = useAuthStore(s => s.dispatch)
-
     const navigate = useNavigate()
+
     const formik = useFormik({
         initialValues: loginState,
         validationSchema: loginValidation,
@@ -29,6 +29,7 @@ export const Login = () => {
             setSubmitting(false)
         }
     })
+    
     return <form onSubmit={formik.handleSubmit} className="max-w-full prose p-3 w-full flex-col justify-items-center justify-center">
         <h1 className='text-center uppercase mb-2'>iniciar sesion</h1>
         <Input icon='at' label='Nombre de usuario o correo' type='text' placeholder='username | ejemplo@thaba.cu'  {...formik.getFieldProps('username')} error={formik.touched.username && formik.errors.username} />

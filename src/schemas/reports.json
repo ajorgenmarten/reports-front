@@ -1,0 +1,19 @@
+{
+    "versatModules": [
+        "contabilidad",
+        "costos",
+        "inventario",
+        "finanza",
+        "activos fijos",
+        "facturacion",
+        "nominas",
+        "planificacion",
+        "gestion de informacion",
+        "auditoria",
+        "logistica",
+        "punto de ventas",
+        "diseñador de reportes",
+        "precios",
+        "sistema de produccion"
+    ]
+}

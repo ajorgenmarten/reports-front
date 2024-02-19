@@ -22,15 +22,15 @@
                 "link": "/reports/"
             },
             {
-                "headerText": "Reportes activo",
+                "headerText": "Licencia versat",
+                "link": "/reports/seed"
+            },
+            {
+                "headerText": "Reportes activos",
                 "link": "/reports/"
             },
             {
                 "headerText": "Todos los reportes",
-                "link": "/reports/"
-            },
-            {
-                "headerText": "Licencia versat",
                 "link": "/reports/"
             }
         ]

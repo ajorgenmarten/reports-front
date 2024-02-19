@@ -10,3 +10,19 @@ export const reportState: ReportData = {
 export const reportValidation = Yup.object({
     title: Yup.string().required("Es obligatorio ponerle un asunto")
 })
+
+export const reportSeedState: ReportData = {
+    title: "versat licencia",
+    description: "",
+    module: "",
+    seed: "",
+    department: "",
+    type: "versat_lic"
+}
+
+export const reportSeedValidation = Yup.object({
+    title: Yup.string().required("Es obligatorio"),
+    module: Yup.string().required("Es obligatorio"),
+    seed: Yup.string().required("Es obligatorio"),
+    department: Yup.string().required("Es obligatorio")
+})

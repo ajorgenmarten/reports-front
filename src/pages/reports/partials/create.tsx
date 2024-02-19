@@ -27,7 +27,7 @@ export const Create = () => {
                 <Input label="Asunto" placeholder="Escribe aquí" classcomponent="mb-2" {...formik.getFieldProps('title')} error={formik.touched.title && formik.errors.title} />
                 <button className="btn self-start mt-9 btn-success text-base-100">Enviar</button>
             </div>
-            <TextArea className="flex-grow" placeholder="Escribe aquí la descripcion ..." {...formik.getFieldProps('description')} />
+            <TextArea classcomponent="flex-grow" className="resize-none" placeholder="Escribe aquí la descripcion ..." {...formik.getFieldProps('description')} />
         </form>
     </div>
 }
