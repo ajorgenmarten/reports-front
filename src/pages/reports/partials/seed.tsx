@@ -1,5 +1,5 @@
 import { useFormik } from "formik"
-import { ExperimentalSelect, Input, TextArea } from "../../../components/input"
+import { Select, Input, TextArea } from "../../../components/input"
 import { versatModules } from '../../../schemas/reports.json'
 import { reportSeedState, reportSeedValidation } from "./formik"
 
@@ -15,7 +15,7 @@ export const Seed = () => {
             <div className="flex gap-2">
             <Input label="Semilla" placeholder="CONTABXXX..." {...formik.getFieldProps('seed')} error={formik.touched.seed && formik.errors.seed} />
             <Input label="Departamento" placeholder="UEB 210, TALLER 117 ..." {...formik.getFieldProps('department')} error={formik.touched.department && formik.errors.department} />
-            <ExperimentalSelect label="Modulo" items={versatModules} icon="people" placeholder="Selecciona un modulo" {...formik.getFieldProps('module')} error={formik.touched.module && formik.errors.module}/>
+            <Select label="Modulo" items={versatModules} icon="people" placeholder="Selecciona un modulo" {...formik.getFieldProps('module')} error={formik.touched.module && formik.errors.module}/>
             </div>
             <button type="submit" className="btn btn-success self-start w-full md:w-auto px-20">Enviar</button>
             <TextArea classcomponent="flex-grow" placeholder="Escribe alguna descripcion...." {...formik.getFieldProps('description')} />

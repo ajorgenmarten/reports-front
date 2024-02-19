@@ -53,7 +53,7 @@ export const TextArea = ({ label, error, className, classcomponent, ...restProps
     </label>
 }
 
-export const ExperimentalSelect = ({ label, itemParser, items, placeholder, icon, className, classcomponent, error, ...restProps }: SelectProps) => {
+export const Select = ({ label, itemParser, items, placeholder, icon, className, classcomponent, error, ...restProps }: SelectProps) => {
 
     return <label className={`form-control w-full ${classcomponent??''}`}>
         {label && <div className="label">
