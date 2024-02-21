@@ -7,6 +7,6 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "new-store": "index.js"
+    "zstore": "index.js"
   }
 }

@@ -21,7 +21,7 @@ export function createStore<State, Actions>(initialState: State, actions: Action
             ...initialState,
             dispatch: async (action, payload) => {
                 const newState = await reducer(action, get(), payload)
-                return set(newState)
+                return set({...newState})
             }
         }), { name: storeName})
     )
