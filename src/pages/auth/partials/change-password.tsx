@@ -15,7 +15,7 @@ export const ChangePassword = () => {
         initialValues: changePwdState,
         validationSchema: ChangeValidation,
         onSubmit: async (data) => {
-            const response = await fetcher('/auth/change-password', 'post', { body: {...data, token} }) as Response
+            const response = await fetcher('/auth/change-password', 'post', { body: {...data, code: token} }) as Response
             if ( response.success )
                 toast.success(response.message)
             else if ( response.message == "Su cuenta no ha sido activada aun." )
