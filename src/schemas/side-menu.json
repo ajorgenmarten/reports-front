@@ -19,18 +19,14 @@
         "children":[
             {
                 "headerText": "Nuevo reporte",
-                "link": "/reports/"
+                "link": "/reports/add"
             },
             {
                 "headerText": "Licencia versat",
                 "link": "/reports/seed"
             },
             {
-                "headerText": "Reportes activos",
-                "link": "/reports/"
-            },
-            {
-                "headerText": "Todos los reportes",
+                "headerText": "Ver reportes",
                 "link": "/reports/"
             }
         ]
