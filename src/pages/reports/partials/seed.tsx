@@ -12,12 +12,14 @@ export const Seed = () => {
 
     return <div className="p-4 h-full">
         <form className="flex flex-col gap-2 h-full" onSubmit={formik.handleSubmit}>
-            <div className="flex gap-2">
-            <Input label="Semilla" placeholder="CONTABXXX..." {...formik.getFieldProps('seed')} error={formik.touched.seed && formik.errors.seed} />
-            <Input label="Departamento" placeholder="UEB 210, TALLER 117 ..." {...formik.getFieldProps('department')} error={formik.touched.department && formik.errors.department} />
-            <Select label="Modulo" items={versatModules} icon="people" placeholder="Selecciona un modulo" {...formik.getFieldProps('module')} error={formik.touched.module && formik.errors.module}/>
+            <div className="flex flex-wrap gap-2">
+                <Input classcomponent="lg:w-1/4 grow" label="Semilla" placeholder="CONTABXXX..." {...formik.getFieldProps('seed')} error={formik.touched.seed && formik.errors.seed} />
+                <Input classcomponent="lg:w-1/4 grow" label="Departamento" placeholder="UEB 210, TALLER 117 ..." {...formik.getFieldProps('department')} error={formik.touched.department && formik.errors.department} />
+                <Select classcomponent="lg:w-1/4 grow" label="Modulo" items={versatModules} icon="people" placeholder="Selecciona un modulo" {...formik.getFieldProps('module')} error={formik.touched.module && formik.errors.module}/>
+                <button type="submit" className="btn btn-success w-full lg:w-auto self-start lg:mt-9">
+                    <i className="bi bi-send"></i>Enviar
+                </button>
             </div>
-            <button type="submit" className="btn btn-success self-start w-full md:w-auto px-20">Enviar</button>
             <TextArea classcomponent="flex-grow" className="resize-none" placeholder="Escribe alguna descripcion...." {...formik.getFieldProps('description')} />
         </form>
     </div>
