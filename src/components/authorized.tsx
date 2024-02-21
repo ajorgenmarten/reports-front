@@ -4,22 +4,25 @@ import { useEffect } from "react"
 import { fetcher } from "../libs/http"
 
 export const Authorized = ({children}: AuthProps) => {
-    const authState = useAuthStore()
+    const { dispatch, isAuth } = useAuthStore()
+
+    const refreshToken = async () => {
+        const response = await fetcher.fetch('/auth/refresh')
+        if(response.message != "Failed to fetch")
+            dispatch('refresh', response)
+    }
 
     useEffect(() => {
-        fetcher.fetch('/auth/refresh').then(response => authState.dispatch('refresh', response))
+        refreshToken()
     }, [])
 
     useEffect(() => {
-        const interval = setInterval(async () => {
-            const response = await fetcher.fetch('/auth/refresh')
-            authState.dispatch('refresh', response)
-        }, 1000 * 60 * 14.5)
+        const interval = setInterval(refreshToken, 1000 * 60 * 14.5)
 
         return () => clearInterval(interval)
     }, [])
 
-    return authState.isAuth ? children : <Navigate to='/auth' />
+    return isAuth ? children : <Navigate to='/auth' />
 }
 
 export const NotLogged = ({children}:AuthProps) => {

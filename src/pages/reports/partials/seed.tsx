@@ -18,7 +18,7 @@ export const Seed = () => {
             <Select label="Modulo" items={versatModules} icon="people" placeholder="Selecciona un modulo" {...formik.getFieldProps('module')} error={formik.touched.module && formik.errors.module}/>
             </div>
             <button type="submit" className="btn btn-success self-start w-full md:w-auto px-20">Enviar</button>
-            <TextArea classcomponent="flex-grow" placeholder="Escribe alguna descripcion...." {...formik.getFieldProps('description')} />
+            <TextArea classcomponent="flex-grow" className="resize-none" placeholder="Escribe alguna descripcion...." {...formik.getFieldProps('description')} />
         </form>
     </div>
 }
