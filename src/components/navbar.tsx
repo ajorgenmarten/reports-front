@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
-import { fetcher } from "../libs/http"
+import { Response, useFetcher } from "../libs/http"
 import { useAuthStore } from "../stores/auth"
 
 export const Navbar = () => {
-    const { dispatch, token} = useAuthStore()
+    const { fetcher } = useFetcher()
+    const { dispatch } = useAuthStore()
 
     const handleLogout:React.MouseEventHandler<HTMLAnchorElement> = async (e) => {
         e.preventDefault()
-        const response = await fetcher.delete().auth(token as string).fetch('/auth/logout')
+        const response = await fetcher('/auth/logout', "delete") as Response
         dispatch("logout", response)
     }
     return <div className="navbar bg-base-100 border-b-[1px]">

@@ -1,4 +1,6 @@
-type ContentTypes = "json" | "urlencoded" | "multipart"
+import { useCallback, useState } from "react"
+import { useAuthStore } from "../stores/auth"
+
 export type Response<T = any> = {
     success: boolean
     data?: T
@@ -6,126 +8,81 @@ export type Response<T = any> = {
     status?: number
 }
 
-const URLENCODED = "application/x-www-form-urlencoded"
-const MULTIPART = "multipart/form-data"
-const JSONENCODED = "application/json"
-
-interface FetcherConfig {
-    method?: "get" | "post" | "put" | "delete"
-    contentType?: ContentTypes
+interface FetcherOptions {
+    contenttype?: "json" | "multipart" | "urlencoded"
+    responsetype?: "json" | "text" | "html"
     body?: any
-    headers?: Headers
-    baseUrl?: string
 }
 
-class Fetcher implements FetcherConfig {
-    private defaults: FetcherConfig
-    method?: FetcherConfig['method']
-    contentType?: ContentTypes
-    content? = URLENCODED
-    body?: any
-    headers = new Headers()
-    baseUrl?: string
+function getContentType(shortName: FetcherOptions['contenttype']) {
+    switch (shortName) {
+        case "json":
+            return "application/json"
+            break;
+        case "multipart":
+            return "multipart/form-data"
+            break;
+        case "urlencoded":
+            return "application/x-www-form-urlencoded"
+        default:
+            throw new Error("Invalid Content-Type")
+    }
+}
 
-    constructor(defaultConfigs: FetcherConfig = {
-        method: "get",
-        contentType: "urlencoded",
-        body: undefined,
-        headers: new Headers(),
-    }) {
-        this.setDefaults(defaultConfigs)
-        this.defaults = defaultConfigs
-        if (this.baseUrl && !/^(http|https):\/\//.test(this.baseUrl)) throw new Error(`Incorrect url base (${this.baseUrl})`)
-    }
+function addToBase(url: string) {
+    let backurl = import.meta.env.VITE_BACKEND_URL as string
+    if (!backurl) return url
+    if (backurl.endsWith('/')) backurl = backurl.slice(0, -1)
+    if (url.startsWith('/')) url = url.slice(1)
+    return `${backurl}/${url}`
+}
 
-    private setDefaults(defaultConfigs: FetcherConfig) {
-        this.defaults = defaultConfigs
-        this.setContentType(defaultConfigs.contentType)
-        this.method = defaultConfigs.method
-        this.setHeaders(defaultConfigs.headers ?? new Headers())
-        this.data(defaultConfigs.body)
-        this.baseUrl = defaultConfigs.baseUrl
-    }
+export function useFetcher<T = any>() {
+    const [fetching, setFetching] = useState(false)
+    const { token: authorization } = useAuthStore()
 
-    get() { this.method = "get"; return this }
-    post() { this.method = "post"; return this }
-    put() { this.method = "put"; return this }
-    delete() { this.method = "delete"; return this }
+    const fetcher = useCallback(async (url: string, method?: "get" | "post" | "put" | "delete", options?: FetcherOptions) => {
+        setFetching(true)
+        url = addToBase(url)
+        const headers: HeadersInit = {}
+        let bodyInit: BodyInit | undefined
 
-    setContentType(type?: ContentTypes) {
-        switch (type) {
-            case "urlencoded":
-                this.content = URLENCODED
-                break;
-            case "json":
-                this.content = JSONENCODED
-                break
-            case "multipart":
-                this.content = MULTIPART
-                break;
-            default:
-                throw new Error("Invalid Content-Type")
-        }
-        return this
-    }
-    data(data: any) {
-        switch (this.content) {
-            case JSONENCODED:
-                this.body = JSON.stringify(data)
-                break;
-            case MULTIPART:
-                this.body = new FormData(data)
-                break;
-            case URLENCODED:
-                this.body = new FormData(data)
-        }
-        return this
-    }
-    auth(token: string) {
-        this.headers.set('authorization', `Bearer ${token}`)
-        return this
-    }
-    /**
-     * Establecer cabeceras
-     * @param {HeadersInit} init Configuracion de cabecera
-     */
-    setHeaders(init: Headers) {
-        this.headers = init
-        return this
-    }
-    private addToBase(url: URL | RequestInfo) {
-        if (!this.baseUrl) return url
-        if (this.baseUrl.endsWith('/')) this.baseUrl = this.baseUrl.slice(0, -1)
-        if (url.toString().startsWith('/')) url = url.toString().slice(1)
-        return `${this.baseUrl}/${url}`
-    }
-    async fetch<T = any>(url: URL | RequestInfo = '/'): Promise<Response<T>> {
+        headers['Content-Type'] = options?.contenttype ? getContentType(options.contenttype) : getContentType("json")
+        if (authorization) headers['authorization'] = `Bearer ${authorization}`
+
+        if (!options?.contenttype) bodyInit = JSON.stringify(options?.body)
+        else bodyInit = new FormData(options.body)
+
         try {
-            this.headers.set('Content-Type', this.content as string)
-
-            const request = await fetch(this.addToBase(url), {
+            const raw = await fetch(url, {
+                method: method ?? "get",
+                headers,
                 credentials: "include",
-                body: this.body,
-                method: this.method,
-                headers: this.headers
+                body: bodyInit
             })
+            setFetching(false)
+
+            switch (options?.responsetype) {
+                case "html":
+                    return await raw.formData() as FormData
+                case "text":
+                    return await raw.text() as string
+                case "json":
+                    return (await raw.json()) as Response<T>
+                default:
+                    return await raw.json() as Response<T>
+            }
+        } catch (error) {
+
+            setFetching(false)
             
-            this.setDefaults(this.defaults)
-
-            const response = await request.json() as Response<T>
-
-            return response
-
-        } catch (e: any) {
             return {
                 success: false,
-                message: e.message
+                message: (error as Error).message
             } as Response
         }
-    }
-}
 
-export const fetcher = new Fetcher({
-    contentType: "json",
-    baseUrl: import.meta.env.VITE_BACKEND_URL,
-})
+    }, [authorization])
+
+    return { fetching, fetcher }
+}

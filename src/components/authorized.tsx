@@ -1,13 +1,14 @@
 import { Navigate } from "react-router-dom"
 import { useAuthStore } from "../stores/auth"
 import { useEffect } from "react"
-import { fetcher } from "../libs/http"
+import { Response, useFetcher } from "../libs/http"
 
 export const Authorized = ({children}: AuthProps) => {
+    const { fetcher } = useFetcher()
     const { dispatch, isAuth } = useAuthStore()
 
     const refreshToken = async () => {
-        const response = await fetcher.fetch('/auth/refresh')
+        const response = await fetcher('/auth/refresh') as Response
         if(response.message != "Failed to fetch")
             dispatch('refresh', response)
     }

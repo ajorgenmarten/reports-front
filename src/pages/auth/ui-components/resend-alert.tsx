@@ -1,11 +1,11 @@
 import { toast } from "react-toastify"
-import { resendCode } from "../partials/controller"
 import { ForgotData } from "../partials/types"
+import { Response, useFetcher } from "../../../libs/http"
 
 export const ResendAlert = ({username}: ForgotData) => {
-    
+    const { fetcher } = useFetcher()
     const resend = async () => {
-        const response = await resendCode({username})
+        const response = await fetcher('/auth/resend-code', 'post', { body: {username} }) as Response
         if (response.success) toast.success(response.message)
         else toast.error(response.message)
     }
