@@ -18,3 +18,9 @@ export interface ChangePwdData {
     password: string
     rpassword: string
 }
+
+export interface User {
+    name: string
+    username: string
+    email: string
+}

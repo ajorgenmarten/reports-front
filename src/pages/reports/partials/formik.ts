@@ -1,7 +1,7 @@
 import { ReportData } from "./types";
 import * as Yup from 'yup'
 
-export const reportState: ReportData = {
+export const reportState: Partial<ReportData> = {
     title: "",
     description: "",
     type: "normal"
@@ -11,7 +11,7 @@ export const reportValidation = Yup.object({
     title: Yup.string().required("Es obligatorio ponerle un asunto")
 })
 
-export const reportSeedState: ReportData = {
+export const reportSeedState: Partial<ReportData> = {
     title: "versat licencia",
     description: "",
     module: "",

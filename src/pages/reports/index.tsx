@@ -2,6 +2,7 @@ import { RouteObject } from "react-router-dom"
 import { Create } from "./partials/create"
 import { Seed } from "./partials/seed"
 import { List } from "./partials/list"
+import { Detail } from "./partials/detail"
 
 const router: RouteObject = {
     path: 'reports',
@@ -17,6 +18,10 @@ const router: RouteObject = {
         {
             path: 'seed',
             element: <Seed />
+        },
+        {
+            path: 'detail/:id',
+            element: <Detail />
         }
     ]
 }

@@ -30,8 +30,9 @@ export const PaginationDemo = () => {
         { field: "title", headerName: "Titulo", minWidth: 180 },
         { field: "description", headerName: "Descripcion", minWidth: 180 },
         { field: "status", headerName: "Estado", filterable: false, minWidth: 140, renderCell: (params) => <TableStatus status={params.row.status} /> },
+        { field: "type", headerName: "Tipo de reporte", filterable: false, minWidth: 140 },
         { field: "createdAt", headerName: "Fecha", minWidth: 150 },
-        { field: "actions", headerName: "", minWidth: 200, sortable: false, filterable: false, renderCell: () => <TableActions />}
+        { field: "actions", headerName: "", minWidth: 200, sortable: false, filterable: false, renderCell: params => <TableActions row={params.row} />}
     ]
 
     const getdata = async(page: number = 0) => {
