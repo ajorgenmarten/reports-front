@@ -15,5 +15,43 @@
         "diseñador de reportes",
         "precios",
         "sistema de produccion"
+    ],
+    "versaDepartments": [
+        { "value": "PRT104", "text": "Taller 104 (Pinar del Río)" },
+        { "value": "PRT105", "text": "Taller 105 (Pinar del Río)" },
+        { "value": "PRT106", "text": "Taller 106 (Pinar del Río)" },
+        { "value": "PRT109", "text": "Taller 109 (Pinar del Río)" },
+        { "value": "PRT110", "text": "Taller 110 (Pinar del Río)" },
+
+        { "value": "LHT101", "text": "Taller 101 (La Habana)" },
+        { "value": "LHT102", "text": "Taller 102 (La Habana)" },
+        { "value": "LHT103", "text": "Taller 103 (La Habana)" },
+        { "value": "LHT108", "text": "Taller 108 (La Habana)" },
+        { "value": "LHT116", "text": "Taller 116 (La Habana)" },
+
+        { "value": "CFT118", "text": "Taller 118 (Cienfuegos)" },
+        { "value": "CFT120", "text": "Taller 120 (Cienfuegos)" },
+        { "value": "CFT121", "text": "Taller 121 (Cienfuegos)" },
+        { "value": "CFT122", "text": "Taller 122 (Cienfuegos)" },
+        { "value": "CFT123", "text": "Taller 123 (Cienfuegos)" },
+
+        { "value": "TUT107", "text": "Taller 107 (La Habana)" },
+        { "value": "TUT112", "text": "Taller 112 (La Habana)" },
+        { "value": "TUT113", "text": "Taller 113 (La Habana)" },
+        { "value": "TUT115", "text": "Taller 115 (La Habana)" },
+
+        { "value": "UEB211", "text": "UEB 211" },
+        { "value": "UEB212", "text": "UEB 212" },
+        { "value": "UEB213", "text": "UEB 213" },
+        { "value": "UEB117", "text": "UEB 117" },
+        { "value": "UEB210", "text": "UEB 210" },
+        { "value": "UEB209", "text": "UEB 209" },
+        { "value": "UEB207", "text": "UEB 207" },
+        { "value": "UEB401", "text": "UEB 401" },
+        { "value": "UEB501", "text": "UEB 501" },
+        { "value": "UEB100", "text": "UEB 100" },
+        { "value": "OFC", "text": "Oficina central" }
+
+
     ]
 }

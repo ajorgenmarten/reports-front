@@ -32,7 +32,7 @@ export const PaginationDemo = () => {
         { field: "status", headerName: "Estado", filterable: false, minWidth: 140, renderCell: (params) => <TableStatus status={params.row.status} /> },
         { field: "type", headerName: "Tipo de reporte", filterable: false, minWidth: 140 },
         { field: "createdAt", headerName: "Fecha", minWidth: 150 },
-        { field: "actions", headerName: "", minWidth: 200, sortable: false, filterable: false, renderCell: params => <TableActions row={params.row} />}
+        { field: "actions", headerName: "", minWidth: 200, sortable: false, filterable: false, renderCell: params => <TableActions row={params.row} render={getdata}/>}
     ]
 
     const getdata = async(page: number = 0) => {
@@ -46,6 +46,7 @@ export const PaginationDemo = () => {
 
     useEffect(() => {
         getdata()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handlePagination = (model: any) => {
