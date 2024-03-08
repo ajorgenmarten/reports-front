@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import schema from '../schemas/side-menu.json'
 
-interface LinkItem {
+export interface LinkItem {
     headerText: string
     bootstrapIcon?: string
     children?: LinkItem[],
     link?: string
+    roles?: ("user"|"admin")[]
 }
 
 export const createListMenu = (items: LinkItem[]) => {
@@ -33,7 +34,7 @@ export const SideMenu = () => {
 
     return <div className="h-[calc(100vh-67px)] w-80 hidden md:block p-2 grow overflow-auto">
         <ul className="menu menu-md bg-base-200 rounded-box mb-2">
-            {createListMenu(schema)}
+            {createListMenu(schema as LinkItem[])}
         </ul>
     </div>
 }

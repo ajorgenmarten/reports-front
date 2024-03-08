@@ -1,4 +1,4 @@
-import { createListMenu } from "./side-menu"
+import { LinkItem, createListMenu } from "./side-menu"
 import schema from "../schemas/side-menu.json"
 import { Link } from "react-router-dom"
 
@@ -13,7 +13,7 @@ export const Drawer = ({children}: DrawerProps) => {
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                 {/* Sidebar content here */}
                 <Link to='/' className="uppercase btn btn-ghost shadow">reports</Link>
-                { createListMenu(schema) }
+                { createListMenu(schema as LinkItem[]) }
             </ul>
         </div>
     </div>

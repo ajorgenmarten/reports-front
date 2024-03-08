@@ -29,3 +29,14 @@ export const logout = (state: AuthState, response: Response) => {
     toast.error(response.message)
     return state
 }
+
+export const me = (state: AuthState, response: Response) => {
+    if ( !response.success ) {
+        state.isAuth = false
+        state.token = undefined
+        state.me = undefined
+    } else {
+        state.me = response.data
+    }
+    return state
+}

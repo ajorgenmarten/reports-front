@@ -2,6 +2,7 @@
     {
         "headerText": "Usuarios",
         "bootstrapIcon": "bi bi-people",
+        "roles": ["admin"],
         "children": [
             {
                 "headerText": "Planillas",
@@ -26,7 +27,7 @@
                 "link": "/reports/seed"
             },
             {
-                "headerText": "Ver reportes",
+                "headerText": "Ver mis reportes",
                 "link": "/reports/"
             }
         ]
@@ -34,6 +35,7 @@
     {
         "headerText": "Softwares",
         "bootstrapIcon":"bi bi-microsoft",
+        "roles": ["admin"],
         "children":[
             {
                 "headerText": "Permitidos",
@@ -64,6 +66,25 @@
             {
                 "headerText": "SIGE THABA",
                 "link": "http://sigelite.thaba.cu:9003/sigelite.php/lite/sigelite"
+            }
+        ]
+    },
+    {
+        "roles": ["admin"],
+        "headerText": "Adiministración",
+        "bootstrapIcon": "bi bi-shield-exclamation",
+        "children": [
+            {
+                "headerText": "Usuarios"
+            },
+            {
+                "headerText": "Todos los reportes"
+            },
+            {
+                "headerText": "Reportes activos"
+            },
+            {
+                "headerText": "Reportes solucionados"
             }
         ]
     }

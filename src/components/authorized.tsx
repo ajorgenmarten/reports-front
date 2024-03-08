@@ -13,8 +13,15 @@ export const Authorized = ({children}: AuthProps) => {
             dispatch('refresh', response)
     }
 
+    const getMyProfile = async () => {
+        const response = await fetcher('/auth/me') as Response
+        if ( response.message != "Failed to fetch" )
+            dispatch('me', response)
+    }
+
     useEffect(() => {
         refreshToken()
+        getMyProfile()
     }, [])
 
     useEffect(() => {
