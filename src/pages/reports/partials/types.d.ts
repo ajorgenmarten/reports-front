@@ -7,5 +7,7 @@ export interface ReportData {
     seed?: string
     module?: string
     department?: string
+    solution: string
+    status: boolean
     type?: 'normal' | 'versat_lic' | 'versat_db'
 }

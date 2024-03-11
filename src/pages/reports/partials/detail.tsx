@@ -24,10 +24,19 @@ export const Detail = () => {
     }, [])
 
     return <div className="p-2 h-full flex flex-col gap-2">
-        <h1 className="text-2xl"> <b> {report?.title} </b> </h1>
+        <h1 className="text-2xl"> 
+            <b> {report?.title} </b> 
+            <div className={`badge badge-xl ${report?.status ? "badge-success" : "badge-error"} `}> { report?.status ? 'Solucionado' : 'No solucionado aun' } </div>
+        </h1>
         { report?.type == "versat_lic" && <h3> Licencia de <b> { report.module } </b>, { report.department } </h3> }
-        <h3> Enviado por: <i> {report?.author.name} </i> </h3>
+        <h3> <b> Enviado por: </b> {report?.author.name} </h3>
         { report?.seed && <span className="whitespace-nowrap break-words"> Semilla: <b className="break-words"> {report.seed} </b> </span> }
-        <textarea className="textarea border border-gray-700 h-full text-lg" value={report?.description} readOnly></textarea>
+        <h3> <b> Descripcion: </b>  </h3>
+        <textarea className="textarea border border-gray-700 min-h-52 text-lg" value={report?.description} readOnly></textarea>
+        { report?.solution && 
+            <>
+                <h3> <b> Solucion: </b> </h3>
+                <textarea className="textarea border border-gray-700 text-lg" value={report?.solution} readOnly></textarea> 
+            </> }
     </div>
 }
