@@ -3,6 +3,7 @@ import { Create } from "./partials/create"
 import { Seed } from "./partials/seed"
 import { List } from "./partials/list"
 import { Detail } from "./partials/detail"
+import { All } from "./partials/all"
 
 const router: RouteObject = {
     path: 'reports',
@@ -22,6 +23,10 @@ const router: RouteObject = {
         {
             path: 'detail/:id',
             element: <Detail />
+        },
+        {
+            path: '/reports/all',
+            element: <All />
         }
     ]
 }

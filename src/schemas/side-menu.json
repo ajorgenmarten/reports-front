@@ -78,7 +78,8 @@
                 "headerText": "Usuarios"
             },
             {
-                "headerText": "Todos los reportes"
+                "headerText": "Todos los reportes",
+                "link": "/reports/all"
             },
             {
                 "headerText": "Reportes activos"

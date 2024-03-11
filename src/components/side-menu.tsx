@@ -14,9 +14,10 @@ export interface LinkItem {
 export const RenderMenuList = ({items}: {items: LinkItem[]}) => {
     const state = useAuthStore()
     return items.map(item => {
+        const key = `menu-item-${item.headerText.toUpperCase()}-${Math.random() * 100}`
         if (item.roles && !item.roles.includes(state.me?.role as User['role'])) return <></>
         if (item.children?.length) {
-            return <li key={`menu-item-${item.headerText}-${Math.random() * 100}`}>
+            return <li key={key}>
                 <details open>
                     <summary>
                         {item.bootstrapIcon && <i className={item.bootstrapIcon}></i>} {item.headerText}
@@ -27,7 +28,7 @@ export const RenderMenuList = ({items}: {items: LinkItem[]}) => {
                 </details>
             </li>
         } else {
-            return <li key={`menu-item-${item.headerText}-${Math.random() * 100}`}>
+            return <li key={key}>
                 <Link to={item.link as string}> {item.headerText} </Link>
             </li>
         }
