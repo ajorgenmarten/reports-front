@@ -26,3 +26,7 @@ export const reportSeedValidation = Yup.object({
     seed: Yup.string().required("Es obligatorio"),
     department: Yup.string().required("Es obligatorio")
 })
+
+export const reportSolution = Yup.object({
+    solution: Yup.string().required("Es obligatorio")
+})

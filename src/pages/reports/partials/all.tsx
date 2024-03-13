@@ -25,9 +25,10 @@ export const All = () => {
         { field: "description", headerName: "Descripcion", minWidth: 180 },
         { field: "status", headerName: "Estado", filterable: false, minWidth: 140, renderCell: (params) => <TableStatus status={params.row.status} /> },
         { field: "type", headerName: "Tipo de reporte", filterable: false, minWidth: 140 },
+        { field: "createdAt", headerName: "Fecha", minWidth: 150, valueGetter: params => new Date(params.row.createdAt).toLocaleDateString('es-ES') },
         { field: "solution", headerName: "Solución", width: 200, sortable: false, valueGetter: params => params.row.solution ? params.row.solution : '-' },
-        { field: "createdAt", headerName: "Fecha", minWidth: 150 },
-        { field: "actions", headerName: "", minWidth: 120, sortable: false, filterable: false, renderCell: params => <TableActions row={params.row} render={getdata}/>},
+        { field: "updatedAt", headerName: "Fecha solución", minWidth: 150, valueGetter: params => params.row.status ? new Date(params.row.createdAt).toLocaleDateString('es-ES') : '-' },
+        { field: "actions", headerName: "", minWidth: 195, sortable: false, filterable: false, renderCell: params => <TableActions row={params.row} render={getdata}/>},
     ]
 
     const getdata = async(page: number = 0) => {

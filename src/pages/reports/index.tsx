@@ -4,6 +4,7 @@ import { Seed } from "./partials/seed"
 import { List } from "./partials/list"
 import { Detail } from "./partials/detail"
 import { All } from "./partials/all"
+import { Solution } from "./partials/solution"
 
 const router: RouteObject = {
     path: 'reports',
@@ -25,8 +26,12 @@ const router: RouteObject = {
             element: <Detail />
         },
         {
-            path: '/reports/all',
+            path: 'all',
             element: <All />
+        },
+        {
+            path: 'solution/:id',
+            element: <Solution />
         }
     ]
 }

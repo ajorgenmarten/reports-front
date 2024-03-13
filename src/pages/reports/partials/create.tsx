@@ -19,10 +19,10 @@ export const Create = () => {
     return <div className="pt-4 h-full">
         <form action="" onSubmit={formik.handleSubmit} className="w-full h-full flex flex-col px-2 pb-2">
             <div className="flex gap-2">
-                <Input label="Asunto" placeholder="Escribe aquí" classcomponent="mb-2" {...formik.getFieldProps('title')} error={formik.touched.title && formik.errors.title} />
-                <button type="submit" className="btn self-start mt-9 btn-success text-base-100">Enviar</button>
+                <Input label="Asunto" placeholder="Escribe aquí" classcomponent="mb-2" tabIndex={1} {...formik.getFieldProps('title')} error={formik.touched.title && formik.errors.title} />
+                <button type="submit" className="btn self-start mt-9 btn-success text-base-100" tabIndex={3}>Enviar</button>
             </div>
-            <TextArea classcomponent="flex-grow" className="resize-none" placeholder="Escribe aquí la descripcion ..." {...formik.getFieldProps('description')} />
+            <TextArea classcomponent="flex-grow" className="resize-none" placeholder="Escribe aquí la descripcion ..." {...formik.getFieldProps('description')} tabIndex={2}/>
         </form>
     </div>
 }
