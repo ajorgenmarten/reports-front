@@ -1,7 +1,6 @@
 
 self.addEventListener("push", e => {
-    self.registration.showNotification('title',{
-        body: e.data.message,
-        icon: './images/login.jpg'
-    })
+    const data = e.data.json()
+    console.log(data);
+    self.registration.showNotification(data.title, {icon: data.icon})
 })
